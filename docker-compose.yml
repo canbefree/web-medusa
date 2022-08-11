@@ -1,0 +1,9 @@
+version: "3"
+services:
+  medusa-node:
+    image: node:18
+  networks:
+    - app_net
+networks:
+    app_net:
+        external: true
