@@ -1,0 +1,10 @@
+server {
+        listen  80;
+        server_name  localhost;
+        root /www;
+        location /{
+           autoindex on;
+           autoindex_exact_size on;
+           autoindex_localtime on;
+        }
+   }
