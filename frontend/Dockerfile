@@ -1,7 +1,7 @@
 FROM node:18 as build
 
-ARG GIT_USERNAME="canbefree"
-ARG GIT_EMAIL="4512198757@qq.com"
+ARG GIT_USERNAME="gusest"
+ARG GIT_EMAIL="example@example.com"
 
 RUN git config --global user.name "${GIT_USERNAME}"
 RUN git config --global user.email "${GIT_EMAIL}"
