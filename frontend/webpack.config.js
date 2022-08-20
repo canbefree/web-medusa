@@ -8,11 +8,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
     mode: "development",
-    entry: "./src/index.ts",
+    entry: {
+        index: "./src/index.ts",
+        index2: "./src/index2.ts"
+    },
     context: path.resolve(__dirname),
     output: {
+        clean: true,
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
+        filename: '[name].[hash].js',
         publicPath: path.resolve(__dirname, 'public'),
     },
     module: {
@@ -28,6 +32,7 @@ module.exports = {
         new HtmlWebpackPlugin()
     ],
     devServer: {
-        static: './dist'
+        static: './dist',
+        port: "9000"
     }
 };
