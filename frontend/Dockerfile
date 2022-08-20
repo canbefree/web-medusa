@@ -12,9 +12,10 @@ WORKDIR /workspace
 COPY  package.json .
 COPY  package-lock.json . 
 
-RUN /bin/bash ./fastbuild.sh
 
 COPY . .
+
+RUN /bin/bash ./fastbuild.sh
 
 RUN npm run build
 
