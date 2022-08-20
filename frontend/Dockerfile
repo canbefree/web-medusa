@@ -21,7 +21,7 @@ RUN npm run build
 
 FROM build as development
 
-CMD ["npm","run","start"]
+CMD ["npm","run","watch"]
 
 FROM nginx:1.21
 
