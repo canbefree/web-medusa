@@ -1,10 +1,8 @@
 FROM node:18 as build
 
+
 ARG GIT_USERNAME="gusest"
 ARG GIT_EMAIL="example@example.com"
-
-RUN git config --global user.name "${GIT_USERNAME}"
-RUN git config --global user.email "${GIT_EMAIL}"
 
 
 WORKDIR /workspace
@@ -12,10 +10,15 @@ WORKDIR /workspace
 COPY  package.json .
 COPY  package-lock.json . 
 
-
 COPY . .
 
 RUN /bin/bash ./fastbuild.sh
+
+
+# RUN cat 
+RUN echo export GIT_EMAIL=${GIT_EMAIL} \\n\
+export GIT_USERNAME=${GIT_USERNAME} \\n\
+> .init_dev_env.sh
 
 RUN npm run build
 

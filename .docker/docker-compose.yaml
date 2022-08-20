@@ -5,7 +5,7 @@ services:
       context: frontend
       target: development
       args:
-        - GIT_USERNAME= canbefree
+        - GIT_USERNAME=canbefree
         - GIT_EMAIL=452198757@qq.com
     # command: sleep infinity
     privileged: true
