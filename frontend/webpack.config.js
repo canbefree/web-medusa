@@ -39,7 +39,6 @@ module.exports = function (webpackEnv) {
             clean: true,
             path: path.resolve(__dirname, 'dist'),
             filename: '[name].[hash].js',
-            // outputPath
             assetModuleFilename: 'images/[contenthash][ext][query]'
         },
         module: {
@@ -48,7 +47,8 @@ module.exports = function (webpackEnv) {
                     test: /\.(png|svg|jpg|jpeg|gif)$/i,
                     type: 'asset/resource',
                     generator: {
-                        filename: 'static/[hash][ext][query]'
+                        filename: 'static/[hash][ext][query]',
+                        outputPath: 'cdn-assets/',
                     }
                 },
                 { test: /\.css$/, use: ['style-loader', 'css-loader'] },
