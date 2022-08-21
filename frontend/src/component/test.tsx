@@ -8,7 +8,12 @@ import { Dropdown } from "bootstrap"
 import Icron from "../asset/images/icon.png"
 import Brand from "../asset/images/site_name.png"
 
+const t = (s: string) => {
+    return function (cons:Function) { }
+}
 
+@t("123")
+class User {}
 
 const Test = memo(() => {
     const f = () => {
