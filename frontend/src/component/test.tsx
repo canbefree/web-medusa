@@ -1,7 +1,14 @@
-import React, { memo } from 'react'
+import React, { memo, ReactElement } from 'react'
+
+import ReactDOM from 'react-dom'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Dropdown } from "bootstrap"
+
+import Icron from "../asset/images/icon.png"
+import Brand from "../asset/images/site_name.png"
+
+
 
 const Test = memo(() => {
     const f = () => {
@@ -11,10 +18,37 @@ const Test = memo(() => {
         let drop = new Dropdown(navbarDropdown as HTMLElement)
         drop.toggle()
     }
+
+    const getIconUrl = (): string => {
+        let url = new URL(Icron)
+        return url.toString()
+    }
+
+    const getBrandUrl = (): string => {
+        let url = new URL(Brand)
+        return url.toString()
+    }
+
+    const renderBrand = (): ReactElement => {
+        return <div>
+            <span className="nav-item">
+                <img src={getIconUrl()} />
+            </span>
+            <span className="nav-item">
+                <img src={getBrandUrl()} />
+            </span>
+        </div>
+    }
+
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#">Navbar</a>
+                <ul className="navbar-brand me-auto mb-1 mb-lg-0">
+                    <a href='#'>
+                        {renderBrand()}
+                    </a>
+                </ul>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

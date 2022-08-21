@@ -47,8 +47,12 @@ module.exports = function (webpackEnv) {
                     test: /\.(png|svg|jpg|jpeg|gif)$/i,
                     type: 'asset/resource',
                     generator: {
-                        filename: 'static/[hash][ext][query]',
-                        outputPath: 'cdn-assets/',
+                        filename: 'images/[contenthash][ext][query]',
+                    },
+                    parser: {
+                        dataUrlCondition: {
+                            maxSize: 8 * 1024 // 限制于 8kb
+                        }
                     }
                 },
                 { test: /\.css$/, use: ['style-loader', 'css-loader'] },
