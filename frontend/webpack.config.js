@@ -79,7 +79,8 @@ module.exports = function (webpackEnv) {
                                 }
                             }
                         }
-                    }, {
+                    },
+                    {
                         // compiles Sass to CSS
                         loader: 'sass-loader'
                     }]
